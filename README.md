@@ -41,14 +41,14 @@ ___
   </ol>
 </details>
 
-## Latar Belakang 
+# I. Latar Belakang 
   
 
 
-## II. Dekripsi dan Cara Kerja
+# II. Dekripsi dan Cara Kerja
 Rangkaian ini akan mengikuti cara kerja dari sebuah Microwave. Dimana terdapat 2 button untuk start dan stop dan 3 button untuk menentukan timer untuk microwavenya. Terdapat 3 jenis timer yaitu 5 menit, 15 menit, dan 30 menit. Pertama kita memilih timer yang kita inginkan terlebih dahulu sebelum kita pencet tombol start. Setelah memilih timer yang kita inginkan, kita dapat memencet tombol start untuk memulai microwavenya. Dalam rangkaian ini kita tidak memperagakan cara kerja heaternya hanya cara kerja fungsinya saja. Kemudian countdown dan suhunya akan ditampilkan pada perangkat MAX7219. Untuk mengukur suhu di dalam microwavenya, kita menggunakan sensor DHT11. Ketika countdownya sudah mencapai 0, maka microwave akan balik ke ready state dan siap menerima timer yang baru. Selama countdown tersebut berjalan, kita dapat juga memencet tombol stop untuk langsung memberhentikan microwavenya.
  
-# Perangkat yang digunakan pada rangkaian
+## Perangkat yang digunakan pada rangkaian
 ```bash
 1 Arduino Uno
 1 DHT11
@@ -57,7 +57,7 @@ Rangkaian ini akan mengikuti cara kerja dari sebuah Microwave. Dimana terdapat 2
 5 Resistor
 ``` 
 
-# Jenis - jenis Button pada Microwave
+## Jenis - jenis Button pada Microwave
 ```bash
 Start Button (Interrupt)
 Stop Button (Interrupt)
@@ -66,14 +66,14 @@ Stop Button (Interrupt)
 30 menit Button
 ```
 
-# Jenis - jenis Timer pada Microwave
+## Jenis - jenis Timer pada Microwave
 ```bash
 5 menit
 15 menit
 30 menit
 ```
 
-# State - State Microwave
+## State - State Microwave
 ```bash
 ready
 running
