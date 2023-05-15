@@ -21,13 +21,11 @@
 </div>
 
 ___
-___
 **Kelompok SSF A9:**
 + Amrita Deviayu Tunjungbiru	- 2106636584
 + Roy Oswaldha - 2106731592
 + Seno Pamungkas Rahman - 2106731586
 + Sulthan Satrya Yudha Darmawan - 2106731560
-___
 ___
 
 <!-- TABLE OF CONTENTS -->
