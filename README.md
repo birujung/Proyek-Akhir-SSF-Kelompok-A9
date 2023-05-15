@@ -36,6 +36,7 @@ ___
   <ol>
     <li><a href="#latar-belakang">Latar Belakang</a></li>
     <li><a href="#dekripsi-dan-cara-kerja">Dekripsi dan Cara Kerja</a></li>
+    <li><a href="#perangkat-yang-digunakan-pada-rangkaian">Perangkat yang digunakan pada rangkaian</a></li>
     <li><a href="#jenis---jenis-button-pada-microwave">Jenis - jenis Button pada Microwave</a></li>
     <li><a href="#jenis---jenis-timer-pada-microwave">Jenis - jenis Timer pada Microwave</a></li>
     <li><a href="#state---state-microwave">State - State Microwave</a></li>
