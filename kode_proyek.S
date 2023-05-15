@@ -1,13 +1,41 @@
 #define __SFR_OFFSET 0x00
 #include "avr/io.h"
+#include "avr/interrupt.h"
 
 .global main
 
+.org 0x0000
+RJMP main
+.org 0x0002
+JMP reset
+
 main:
+RCALL init_interrupt
 RCALL SPI_MAX7219_init
-loop:
+
+waitTimer:
+SBIC PIND, 6
+LDI R25, 1 ; 1 detik
+MOV R15,R25
+SBIC PIND, 5
 RCALL uptime_logic
-RJMP loop
+LDI R25, 2 ; 2 detik
+MOV R15,R25
+RCALL uptime_logic
+SBIC PIND, 4
+LDI R25, 3 ; 3 detik
+MOV R15,R25
+RCALL uptime_logic
+CPI R25, 0		;data untuk 
+BRNE loop
+RJMP waitTimer
+
+loop:
+RCALL disp_space
+RCALL uptime_logic
+CPI R29,0			;if interrupt occurs
+RCALL shutdown_max
+RJMP wait_timer
 
 SPI_MAX7219_init:
 ;------------
@@ -15,32 +43,38 @@ SPI_MAX7219_init:
 .equ  MOSI, 3
 .equ  SS, 2
 ;--------------------------------------------------------------
-      LDI   R17, (1<<MOSI)|(1<<SCK)|(1<<SS)
-      OUT   DDRB, R17       ;set MOSI, SCK, SS as o/p
+LDI   R17, (1<<MOSI)|(1<<SCK)|(1<<SS)
+OUT   DDRB, R17       ;set MOSI, SCK, SS as o/p
       ;--------------------------------------------------------
-      LDI   R17, (1<<SPE)|(1<<MSTR)|(1<<SPR0)
-      OUT   SPCR, R17       ;enable SPI as master, fsck=fosc/16
+LDI   R17, (1<<SPE)|(1<<MSTR)|(1<<SPR0)
+OUT   SPCR, R17       ;enable SPI as master, fsck=fosc/16
       ;--------------------------------------------------------
-      LDI   R17, 0x0A       ;set segment intensity (0 to 15)
-      LDI   R18, 8          ;intensity level = 8
-      RCALL send_bytes      ;send command & data to MAX7219
+LDI   R17, 0x0A       ;set segment intensity (0 to 15)
+LDI   R18, 8          ;intensity level = 8
+RCALL send_bytes      ;send command & data to MAX7219
       ;--------------------------------------------------------
-      LDI   R17, 0x09       ;set decoding mode command
-      LDI   R18, 0b00111111 ;decoding byte
-      RCALL send_bytes      ;send command & data to MAX7219
+LDI   R17, 0x09       ;set decoding mode command
+LDI   R18, 0b11001111 ;decoding byte
+RCALL send_bytes      ;send command & data to MAX7219
       ;--------------------------------------------------------
-      LDI   R17, 0x0B       ;set scan limit command
-      LDI   R18, 0x04       ;8 digits connected to MAX7219
-      RCALL send_bytes      ;send command & data to MAX7219
+LDI   R17, 0x0B       ;set scan limit command
+LDI   R18, 0x07       ;8 digits connected to MAX7219
+RCALL send_bytes      ;send command & data to MAX7219
       ;--------------------------------------------------------
-      LDI   R17, 0x0C       ;set turn ON/OFF command
-      LDI   R18, 0x01       ;turn ON MAX7219
-      RCALL send_bytes      ;send command & data to MAX7219
+LDI   R17, 0x0C       ;set turn ON/OFF command
+LDI   R18, 0x01       ;turn ON MAX7219
+RCALL send_bytes      ;send command & data to MAX7219
       ;--------------------------------------------------------
-      RET
+RET
 ;==============================================================
 
 uptime_logic:
+LDI R29,0
+LDI R17, 0x04
+MOV R18, R29
+RCALL send_bytes
+
+agn3:
 LDI R29,0
 LDI R17, 0x03
 MOV R18, R29
@@ -77,11 +111,20 @@ RJMP agn1
 inc_min:
 LDi R17,0x03
 INC R29
-CPI R29,5
-BREQ uptime_logic
+CPI R29,11
+BREQ inc_min2
 MOV R18,R29
 RCALL send_bytes
 RJMP agn2
+
+inc_min2:
+LDi R17,0x04
+INC R25
+CPI R25,1   ;CP R25,R15
+BREQ uptime_logic
+MOV R18,R25
+RCALL send_bytes
+RJMP agn3
 
 
 
@@ -178,11 +221,11 @@ RET
       ;--------------------------------------------------------  
 dsp:  
 MOV   R18, R27
-LDI   R17, 0x05        ;select digit, R29 ganti dengan 0x01
+LDI   R17, 0x08        ;select digit, R29 ganti dengan 0x01
 RCALL send_bytes      ;send command & data to MAX7219
       ;--------------------------------------------------------
 MOV   R18, R28
-MOV   R17, 0x04      ;select digit, R30 ganti dengan 0x02
+MOV   R17, 0x07      ;select digit, R30 ganti dengan 0x02
 RCALL send_bytes      ;send command & data to MAX7219    
       ;--------------------------------------------------------
 RET
@@ -273,3 +316,55 @@ BRNE  l4
 DEC   R21
 BRNE  l3
 RET
+
+init_interrupt:
+;CLR R24 			; clear R24 to 0
+CBI DDRD, 2 		; Input pull up INT 0 (Pin 2)
+SBI PORTD, 2
+LDI R16, (1 << ISC01)   ; Falling Edge mode source = INT0 and INT1?
+STS EICRA, R16
+SBI EIMSK, INT0		; Enable INT0
+SEI				; Enable global interrupts
+RET
+
+
+choose10:
+LDI R25,1
+MOV R15,R25
+RJMP uptime_logic
+
+choose20:
+LDI R25,2
+MOV R15, R25
+RJMP uptime_logic
+
+choose30:
+LDI R25,3
+MOV R15,R25
+RJMP uptime_logic
+
+disp_space:
+LDI R17,0x05
+LDI R18,0x00
+RCALL send_bytes
+
+LDI R17,0x06
+LDI R18,0x4E
+RCALL send_bytes
+RET
+
+
+reset:
+CLR R29
+CLR R30
+CLR R31
+CLR R24
+SBI EIFR, INTF0
+    ; Return from interrupt
+RETI
+
+shutdown_MAX:
+LDI   R17, 0x0C       ;set turn ON/OFF command
+LDI   R18, 0x00       ;turn ON MAX7219
+RCALL send_bytes      ;send command & data to MAX7219
+
