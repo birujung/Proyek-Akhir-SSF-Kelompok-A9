@@ -79,6 +79,11 @@ ready
 running
 ```
 
+# III. Implementasi Software
+
+# IV. Hasil Pengujian dan Evaluasi
+
+# V. Kesimpulan
 
 <!-- MARKDOWN LINKS & IMAGES -->
   [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
