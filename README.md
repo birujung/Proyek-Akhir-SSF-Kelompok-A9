@@ -61,8 +61,8 @@ ___
 ```bash
 Start Button (Interrupt)
 Stop Button (Interrupt)
-5 menit Button
-15 menit Button
+10 menit Button
+20 menit Button
 30 menit Button
 ```
 
@@ -90,8 +90,14 @@ running
 </p>
 
 ## Hasil
+<p align="justify">
+Setelah dilakukan pengujian, didapatkan hasil seperti yang diinginkan. Button START dan button timer bekerja dengan baik sehingga terdapat display pada MAX7219. MAX7219 menampilkan suhu microwave (pada pengujian : suhu ruangan) serta menampilkan waktu timer yang sedang menghitung naik sesuai dengan pilihan timer yang diinginkan diawal, yaitu 20 menit. Pada pengujian pertama, hasil yang ditampilkan adalah suhu senilai 30 derajat celcius dan timer 10 menit 40 detik. Dalam pengujian kedua, kami ingin melihat apakah button STOP atau RESET kami bekerja. Setelah diujikan, button STOP atau RESET berhasil bekerja dan didapatkan hasil yang diinginkan. MAX7219 menampilkan angka 0 untuk suhu maupun timer.
+</p>
 
 ## Evaluasi
+<p align="justify">
+  
+</p>
 
 # V. Kesimpulan
 <p align="justify"> Proyek ini merupakan implementasi cara kerja microwave dengan melakukan integrasi hardware dan software seputar penggunaan Arduino Uno. Kode pada proyek ini dirancang dengan menggunakan bahasa Assembly dengan memperhatikan implementasi Sembilan modul yang telah dipaparkan selama Praktikum Sistem Siber Fisik Laboratorium Digital Fakultas Teknik Universitas Indonesia berlangsung dengan fokus pada penggunaan Sensor DHT, Timer, implementasi serial monitor, serta implementasi interrupt. Lalu Hardware dirangkai dengan menggunakan alat dan bahan  yang telah tertera serta dilakukan integrasi antara hardware dan software dengan mengimplementasikan kode yang telah dibuat agar pengujian dapat dilaksanakan.</p>
