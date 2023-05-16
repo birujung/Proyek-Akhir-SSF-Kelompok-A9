@@ -96,7 +96,7 @@ Setelah dilakukan pengujian, didapatkan hasil seperti yang diinginkan. Button ST
 
 ## Evaluasi
 <p align="justify">
-  
+Evaluasi yang timbul dari adanya proyek akhir Sistem Siber Fisik ini dipisahkan menjadi dua: evaluasi dari kinerja selama pengerjaan proyek dan evaluasi dari hasil yang didapatkan. Untuk kinerja selama pengerjaan proyek, kelompok kami memiliki kerjasama kelompok yang cukup bagus sehingga proses pengerjaan tidak berantakan. Pembagian pekerjaan pun cukup seimbang dan waktu untuk menyelesaikan semua kebutuhan proyek bisa terlaksana. Dari segi hasil yang didapatkan, kelompok kami berhasil mendapatkan hasil sesuai tujuan dan harapan kami. Implementasi seluruh modul pun juga sudah dilaksanakan dalam pembuatan kode Assembly sehingga proyek kami bisa dinyatakan memenuhi semua syarat proyek akhir Sistem Siber Fisik. Apabila ada yang perlu ditambahkan, maka kelompok kami mengusulkan untuk menggunakan heater untuk mensimulasikan microwave secara nyata dalam skala kecil. Kemudian, penggunaan LED untuk menandakan apakah microwave sedang berjalan atau tidak juga bisa ditambahkan untuk menambah keamanan pada replikasi microwave ini.
 </p>
 
 # V. Kesimpulan
