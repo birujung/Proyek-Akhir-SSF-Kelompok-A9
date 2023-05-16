@@ -73,12 +73,6 @@ Stop Button (Interrupt)
 30 menit
 ```
 
-## State - State Microwave
-```bash
-ready
-running
-```
-
 # III. Implementasi Software
 <p align="justify"> Berdasarkan kode, fungsi SPI_MAX7219_init berfungsi untuk melakukan inisialisasi yang mengatur mode SPI dan mengirim beberapa perintah dan data ke MAX7219, chip yang mengendalikan display tujuh segmen. Fungsi ini mempersiapkan pengaturan awal sebelum display dapat digunakan. Fungsi uptime_logic bertanggung jawab untuk mengatur dan mengirimkan data waktu (menit, detik) ke display MAX7219. Fungsi inc_MSD berfungsi untuk mengatur peningkatan digit MSD (Most Significant Digit) yaitu detik hingga 60, fungsi inc_min berfungsi untuk mengatur peningkatan digit menit hingga 10 menit, dan fungsi inc_min2 berfungsi untuk mengatur peningkatan digit menit puluhan sesuai button yang dipilih. Fungsi send_bytes digunakan untuk mengirimkan byte perintah dan data ke MAX7219 melalui komunikasi SPI. Fungsi delay_timer1 digunakan untuk membuat penundaan selama 1 detik menggunakan Timer 1 dan diaplikasikan fungsi uptime_logic untuk membuat timer detik berjalan naik. Fungsi delay_timer0 digunakan untuk membuat penundaan sebesar 10 detik menggunakan Timer 0 dan diaplikasikan ke dalam DHT11_reading untuk memberikan delay dalam pembacaan sensor. </p>
   
