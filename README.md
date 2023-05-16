@@ -41,7 +41,7 @@ ___
   </ol>
 </details>
 
-# I. Latar Belakang dan Solusi\
+# I. Latar Belakang dan Solusi
 <p align="justify"> 
 Dalam kehidupan sehari-hari, masyarakat modern dihadapkan pada tantangan kesibukan dan kekurangan waktu. Kehidupan yang serba cepat membutuhkan solusi praktis, cepat, dan efisien dalam memasak dan menghangatkan makanan. Namun, banyak orang yang sibuk dengan pekerjaan dan tanggung jawab lainnya, sehingga memasak menjadi sulit dilakukan. Microwave hadir sebagai solusi untuk memenuhi kebutuhan tersebut. Dengan menggunakan button, timer, dan sensor DHT11, microwave dapat memanaskan makanan dengan cepat. Hal ini sangat membantu bagi mereka yang memiliki jadwal yang padat. Penggunaan microwave memungkinkan masyarakat menjaga kualitas hidangan tanpa harus mengorbankan waktu yang berharga. Dengan demikian, microwave menjadi pilihan yang praktis dan efisien dalam menjaga kualitas makanan tanpa membuang banyak waktu berharga. 
 </p>
