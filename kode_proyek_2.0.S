@@ -7,41 +7,33 @@
 .org 0x0000
 RJMP main
 .org 0x0002
-JMP reset
+RJMP reset
 
 main:
 RCALL init_interrupt
-RCALL SPI_MAX7219_init
+waitStart:
+SBIC PIND,3
+RJMP option
+backtoStart:
+RJMP waitStart
 
-waitTimer:
-SBIC PIND, 6
-LDI R25, 1 ; 1 detik
-MOV R15,R25
-SBIC PIND, 5
-RCALL uptime_logic
-LDI R25, 2 ; 2 detik
-MOV R15,R25
-RCALL uptime_logic
-SBIC PIND, 4
-LDI R25, 3 ; 3 detik
-MOV R15,R25
-RCALL uptime_logic
-CPI R25, 0		;data untuk 
-BRNE loop
-RJMP waitTimer
 
-loop:
-RCALL disp_space
-RCALL uptime_logic
-CPI R29,0			;if interrupt occurs
-RCALL shutdown_max
-RJMP wait_timer
+
+option:
+SBIC PIND,4
+RJMP choose10
+SBIC PIND,5
+RJMP choose20
+SBIC PIND,6
+RJMP choose30
+RJMP option
+
 
 SPI_MAX7219_init:
 ;------------
-.equ  SCK, 5
-.equ  MOSI, 3
-.equ  SS, 2
+.equ  SCK, 5  ;clk 13
+.equ  MOSI, 3 ;din 11
+.equ  SS, 2   ;cs 10
 ;--------------------------------------------------------------
 LDI   R17, (1<<MOSI)|(1<<SCK)|(1<<SS)
 OUT   DDRB, R17       ;set MOSI, SCK, SS as o/p
@@ -50,7 +42,7 @@ LDI   R17, (1<<SPE)|(1<<MSTR)|(1<<SPR0)
 OUT   SPCR, R17       ;enable SPI as master, fsck=fosc/16
       ;--------------------------------------------------------
 LDI   R17, 0x0A       ;set segment intensity (0 to 15)
-LDI   R18, 8          ;intensity level = 8
+LDI   R18, 5          ;intensity level = 8
 RCALL send_bytes      ;send command & data to MAX7219
       ;--------------------------------------------------------
 LDI   R17, 0x09       ;set decoding mode command
@@ -69,9 +61,9 @@ RET
 ;==============================================================
 
 uptime_logic:
-LDI R29,0
+LDI R25,0
 LDI R17, 0x04
-MOV R18, R29
+MOV R18, R25
 RCALL send_bytes
 
 agn3:
@@ -109,19 +101,20 @@ RCALL send_bytes
 RJMP agn1
 
 inc_min:
-LDi R17,0x03
+LDI R17,0x03
 INC R29
-CPI R29,11
+CPI R29,10
 BREQ inc_min2
 MOV R18,R29
 RCALL send_bytes
 RJMP agn2
 
 inc_min2:
-LDi R17,0x04
+;RCALL DHT11_sensor
+LDI R17,0x04
 INC R25
-CPI R25,1   ;CP R25,R15
-BREQ uptime_logic
+CPI R25,3  ;CP R25,R15
+BREQ backtoStart
 MOV R18,R25
 RCALL send_bytes
 RJMP agn3
@@ -150,7 +143,7 @@ RET
 
 
 delay_timer1: ; 1 sec delay via timer1
-.EQU value, 62498
+.EQU value, 62498    ;62498
   ;-------------------------------------------------------
 CLR R20 ; Clear R20 to be 0
 STS TCNT1H, R20 ; Store R20 to High Byte TCNT1
@@ -254,7 +247,7 @@ SBIC  PIND, 7
 RJMP  w3            ;wait for DHT11 low pulse
 ;-----------------------------------------------------------------
 RCALL DHT11_reading ;read humidity (1st byte of 40-bit data)
-MOV   R25, R24
+MOV   R13, R24
 RCALL DHT11_reading
 RCALL DHT11_reading ;read temp (3rd byte of 40-bit data)
 ;-----------------------------------------------------------------
@@ -319,6 +312,10 @@ RET
 
 init_interrupt:
 ;CLR R24 			; clear R24 to 0
+CBI DDRD,3
+CBI DDRD,4
+CBI DDRD,5
+CBI DDRD,6
 CBI DDRD, 2 		; Input pull up INT 0 (Pin 2)
 SBI PORTD, 2
 LDI R16, (1 << ISC01)   ; Falling Edge mode source = INT0 and INT1?
@@ -331,16 +328,22 @@ RET
 choose10:
 LDI R25,1
 MOV R15,R25
+RCALL SPI_MAX7219_init
+RCALL disp_space
 RJMP uptime_logic
 
 choose20:
 LDI R25,2
 MOV R15, R25
+RCALL SPI_MAX7219_init
+RCALL disp_space
 RJMP uptime_logic
 
 choose30:
 LDI R25,3
 MOV R15,R25
+RCALL SPI_MAX7219_init
+RCALL disp_space
 RJMP uptime_logic
 
 disp_space:
@@ -355,16 +358,7 @@ RET
 
 
 reset:
-CLR R29
-CLR R30
-CLR R31
-CLR R24
-SBI EIFR, INTF0
-    ; Return from interrupt
+;RCALL shutdown_MAX
+;RJMP shutdown_MAX
+SBI EIFR, INTF0   ; Return from interrupt
 RETI
-
-shutdown_MAX:
-LDI   R17, 0x0C       ;set turn ON/OFF command
-LDI   R18, 0x00       ;turn ON MAX7219
-RCALL send_bytes      ;send command & data to MAX7219
-
