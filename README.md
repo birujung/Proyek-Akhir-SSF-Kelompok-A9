@@ -59,7 +59,7 @@ ___
 
 ## Jenis - jenis Button pada Microwave
 ```bash
-Start Button (Interrupt)
+Start Button
 Stop Button (Interrupt)
 10 menit Button
 20 menit Button
