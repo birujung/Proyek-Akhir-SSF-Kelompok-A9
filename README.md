@@ -84,6 +84,9 @@ running
 # IV. Hasil Pengujian dan Evaluasi
 
 # V. Kesimpulan
+Microwave merupakan barang yang digunakan dalam kehidupan sehari-hari yang fungsi utamanya adalah memanaskan makanan. Proyek ini mengimplementasikan cara kerja microwave dengan melakukan integrasi hardware dan software seputar penggunaan Arduino Uno. Kode pada proyek ini dirancang dengan menggunakan bahasa Assembly dengan memperhatikan implementasi Sembilan modul yang telah dipaparkan selama Praktikum Sistem Siber Fisik Laboratorium Digital Fakultas Teknik Universitas Indonesia berlangsung dengan fokus pada penggunaan Sensor DHT, Timer, serta implementasi serial monitor. Lalu Hardware dirangkai dengan menggunakan bahan-bahan yang telah tertera serta dilakukan integrasi antara hardware dan software dengan mengimplementasikan kode yang telah dibuat agar pengujian dapat dilaksanakan.
+Berdasarkan hasil dari pengujian dan evaluasi, Proyek Microwave yang telah kelompok kami buat dapat mendeteksi suhu serta melakukan perhitungan waktu sebagaimana yang ditujukan dari tujuan awal pembuatan proyek. Maka dari itu, Proyek Microwave ini telah berjalan dengan baik.
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
   [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
