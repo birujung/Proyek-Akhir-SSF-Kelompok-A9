@@ -88,6 +88,7 @@ running
 ## Pengujian
 <p align="justify"> Setelah melakukan integrasi hardware dengan software, rangkaian diuji dengan tujuan membuktikan apakah rangkaian akan berjalan sesuai dengan input kode yang telah diberikan. Rangkaian Microwave diuji dengan memilih durasi lamanya microwave akan berjalan melalui button dengan spesifikasi waktu antara 10 menit, 20 menit, dan 30 menit. Apabila durasi yang dipilih tidak sesuai, button STOP dapat ditekan untuk menghentikan proses pemilihan durasi serta mengulang input waktu. Setelah durasi yang dipilih sesuai, Button START dapat ditekan untuk memulai Microwave bekerja. Selama proses tersebut berlangsung, MAX 7219 akan mendisplay Suhu dengan besaran derajat Celcius yang ditangkap oleh sensor DHT11 serta menampilkan display CountUp selama microwave bekerja sesuai dengan durasi yang dipilih sebelum menekan button START. Microwave akan berhenti bekerja apabila telah mencapai durasi yang telah ditentukan.
 </p>
+
 ## Hasil
 
 ## Evaluasi
