@@ -9,14 +9,9 @@
 
   <p align="center">
     <br />
-    <a href="https://github.com/rroiii/Electronic-Vault-Lock"><strong>Explore the docs »</strong></a>
+    <a href="https://docs.google.com/document/d/1hm8Lt8FwRerWbpJ2OE97XsNa6cO3VT7M3mVZjngSqH8/edit?usp=sharing"><strong>Explore our docs »</strong></a>
+    <a href="https://www.canva.com/design/DAFjFzc3Epw/BtCf_STqrOJoeX49x1hR0A/edit?utm_content=DAFjFzc3Epw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"><strong>Our Presentation »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/rroiii/Electronic-Vault-Lock">View Demo</a>
-    ·
-    <a href="https://github.com/rroiii/Electronic-Vault-Lock/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/rroiii/Electronic-Vault-Lock/issues">Request Feature</a>
   </p>
 </div>
 
@@ -50,7 +45,7 @@ Dalam kehidupan sehari-hari, masyarakat modern dihadapkan pada tantangan kesibuk
 
 # II. Dekripsi dan Cara Kerja
 <p align="justify"> 
-Rangkaian ini akan mengikuti cara kerja dari sebuah Microwave. Dimana terdapat 2 button untuk start dan stop dan 3 button untuk menentukan timer untuk microwavenya. Terdapat 3 jenis timer yaitu 5 menit, 15 menit, dan 30 menit. Pertama kita memilih timer yang kita inginkan terlebih dahulu sebelum kita pencet tombol start. Setelah memilih timer yang kita inginkan, kita dapat memencet tombol start untuk memulai microwavenya. Dalam rangkaian ini kita tidak memperagakan cara kerja heaternya hanya cara kerja fungsinya saja. Kemudian countdown dan suhunya akan ditampilkan pada perangkat MAX7219. Untuk mengukur suhu di dalam microwavenya, kita menggunakan sensor DHT11. Ketika countdownya sudah mencapai 0, maka microwave akan balik ke ready state dan siap menerima timer yang baru. Selama countdown tersebut berjalan, kita dapat juga memencet tombol stop untuk langsung memberhentikan microwavenya. 
+Rangkaian ini akan mengikuti cara kerja dari sebuah Microwave. Dimana terdapat 2 button untuk start dan stop dan 3 button untuk menentukan timer untuk microwavenya. Terdapat 3 jenis timer yaitu 10 menit, 20 menit, dan 30 menit. Pertama kita memilih timer yang kita inginkan terlebih dahulu sebelum kita pencet tombol start. Setelah memilih timer yang kita inginkan, kita dapat memencet tombol start untuk memulai microwavenya. Dalam rangkaian ini kita tidak memperagakan cara kerja heaternya hanya cara kerja fungsinya saja. Kemudian countup dan suhunya akan ditampilkan pada perangkat MAX7219. Untuk mengukur suhu di dalam microwavenya, kita menggunakan sensor DHT11. Ketika countupnya sudah mencapai timer yang dipilih, maka microwave akan balik ke ready state dan siap menerima timer yang baru. Selama countdown tersebut berjalan, kita dapat juga memencet tombol stop untuk langsung memberhentikan microwavenya. 
 </p>
 
  
@@ -74,8 +69,8 @@ Stop Button (Interrupt)
 
 ## Jenis - jenis Timer pada Microwave
 ```bash
-5 menit
-15 menit
+10 menit
+20 menit
 30 menit
 ```
 
