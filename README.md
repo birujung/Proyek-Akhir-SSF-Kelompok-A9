@@ -10,7 +10,7 @@
   <p align="center">
     <br />
     <a href="https://docs.google.com/document/d/1hm8Lt8FwRerWbpJ2OE97XsNa6cO3VT7M3mVZjngSqH8/edit?usp=sharing"><strong>Explore our docs »</strong></a>
-    <a>   </a>
+    <a href=""> | </a>
     <a href="https://www.canva.com/design/DAFjFzc3Epw/BtCf_STqrOJoeX49x1hR0A/edit?utm_content=DAFjFzc3Epw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"><strong>Our Presentation »</strong></a>
     <br />
   </p>
