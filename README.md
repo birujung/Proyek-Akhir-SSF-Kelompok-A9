@@ -41,12 +41,18 @@ ___
   </ol>
 </details>
 
-# I. Latar Belakang dan Solusi
-Dalam kehidupan sehari-hari, masyarakat modern dihadapkan pada tantangan kesibukan dan kekurangan waktu. Kehidupan yang serba cepat membutuhkan solusi praktis, cepat, dan efisien dalam memasak dan menghangatkan makanan. Namun, banyak orang yang sibuk dengan pekerjaan dan tanggung jawab lainnya, sehingga memasak menjadi sulit dilakukan. Microwave hadir sebagai solusi untuk memenuhi kebutuhan tersebut. Dengan menggunakan button, timer, dan sensor DHT11, microwave dapat memanaskan makanan dengan cepat. Hal ini sangat membantu bagi mereka yang memiliki jadwal yang padat. Penggunaan microwave memungkinkan masyarakat menjaga kualitas hidangan tanpa harus mengorbankan waktu yang berharga. Dengan demikian, microwave menjadi pilihan yang praktis dan efisien dalam menjaga kualitas makanan tanpa membuang banyak waktu berharga.
+# I. Latar Belakang dan Solusi\
+<p align="justify"> 
+Dalam kehidupan sehari-hari, masyarakat modern dihadapkan pada tantangan kesibukan dan kekurangan waktu. Kehidupan yang serba cepat membutuhkan solusi praktis, cepat, dan efisien dalam memasak dan menghangatkan makanan. Namun, banyak orang yang sibuk dengan pekerjaan dan tanggung jawab lainnya, sehingga memasak menjadi sulit dilakukan. Microwave hadir sebagai solusi untuk memenuhi kebutuhan tersebut. Dengan menggunakan button, timer, dan sensor DHT11, microwave dapat memanaskan makanan dengan cepat. Hal ini sangat membantu bagi mereka yang memiliki jadwal yang padat. Penggunaan microwave memungkinkan masyarakat menjaga kualitas hidangan tanpa harus mengorbankan waktu yang berharga. Dengan demikian, microwave menjadi pilihan yang praktis dan efisien dalam menjaga kualitas makanan tanpa membuang banyak waktu berharga. 
+</p>
+
 
 
 # II. Dekripsi dan Cara Kerja
-Rangkaian ini akan mengikuti cara kerja dari sebuah Microwave. Dimana terdapat 2 button untuk start dan stop dan 3 button untuk menentukan timer untuk microwavenya. Terdapat 3 jenis timer yaitu 5 menit, 15 menit, dan 30 menit. Pertama kita memilih timer yang kita inginkan terlebih dahulu sebelum kita pencet tombol start. Setelah memilih timer yang kita inginkan, kita dapat memencet tombol start untuk memulai microwavenya. Dalam rangkaian ini kita tidak memperagakan cara kerja heaternya hanya cara kerja fungsinya saja. Kemudian countdown dan suhunya akan ditampilkan pada perangkat MAX7219. Untuk mengukur suhu di dalam microwavenya, kita menggunakan sensor DHT11. Ketika countdownya sudah mencapai 0, maka microwave akan balik ke ready state dan siap menerima timer yang baru. Selama countdown tersebut berjalan, kita dapat juga memencet tombol stop untuk langsung memberhentikan microwavenya.
+<p align="justify"> 
+Rangkaian ini akan mengikuti cara kerja dari sebuah Microwave. Dimana terdapat 2 button untuk start dan stop dan 3 button untuk menentukan timer untuk microwavenya. Terdapat 3 jenis timer yaitu 5 menit, 15 menit, dan 30 menit. Pertama kita memilih timer yang kita inginkan terlebih dahulu sebelum kita pencet tombol start. Setelah memilih timer yang kita inginkan, kita dapat memencet tombol start untuk memulai microwavenya. Dalam rangkaian ini kita tidak memperagakan cara kerja heaternya hanya cara kerja fungsinya saja. Kemudian countdown dan suhunya akan ditampilkan pada perangkat MAX7219. Untuk mengukur suhu di dalam microwavenya, kita menggunakan sensor DHT11. Ketika countdownya sudah mencapai 0, maka microwave akan balik ke ready state dan siap menerima timer yang baru. Selama countdown tersebut berjalan, kita dapat juga memencet tombol stop untuk langsung memberhentikan microwavenya. 
+</p>
+
  
 ## Perangkat yang digunakan pada rangkaian
 ```bash
@@ -84,9 +90,12 @@ running
 # IV. Hasil Pengujian dan Evaluasi
 
 # V. Kesimpulan
+<p align="justify"> 
 Microwave merupakan barang yang digunakan dalam kehidupan sehari-hari yang fungsi utamanya adalah memanaskan makanan. Proyek ini mengimplementasikan cara kerja microwave dengan melakukan integrasi hardware dan software seputar penggunaan Arduino Uno. Kode pada proyek ini dirancang dengan menggunakan bahasa Assembly dengan memperhatikan implementasi Sembilan modul yang telah dipaparkan selama Praktikum Sistem Siber Fisik Laboratorium Digital Fakultas Teknik Universitas Indonesia berlangsung dengan fokus pada penggunaan Sensor DHT, Timer, serta implementasi serial monitor. Lalu Hardware dirangkai dengan menggunakan bahan-bahan yang telah tertera serta dilakukan integrasi antara hardware dan software dengan mengimplementasikan kode yang telah dibuat agar pengujian dapat dilaksanakan.
 
-Berdasarkan hasil dari pengujian dan evaluasi, Proyek Microwave yang telah kelompok kami buat dapat mendeteksi suhu serta melakukan perhitungan waktu sebagaimana yang ditujukan dari tujuan awal pembuatan proyek. Maka dari itu, Proyek Microwave ini telah berjalan dengan baik.
+Berdasarkan hasil dari pengujian dan evaluasi, Proyek Microwave yang telah kelompok kami buat dapat mendeteksi suhu serta melakukan perhitungan waktu sebagaimana yang ditujukan dari tujuan awal pembuatan proyek. Maka dari itu, Proyek Microwave ini telah berjalan dengan baik. 
+</p>
+
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
